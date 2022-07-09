@@ -23,8 +23,7 @@ type Props = {
 const ThemeProvider = ({ children }: Props) => {
   const themeOption: ThemeOptions = useMemo(
     () => ({
-      // theme 입력 ()
-      palette,
+      palette: palette.light,
     }),
     []
   );
