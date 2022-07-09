@@ -15,6 +15,7 @@ import {
 } from "@mui/material/styles";
 import { CssBaseline } from "@mui/material";
 import palette from "./palette";
+import shadows from "./shadows";
 
 type Props = {
   children: ReactNode;
@@ -24,6 +25,7 @@ const ThemeProvider = ({ children }: Props) => {
   const themeOption: ThemeOptions = useMemo(
     () => ({
       palette: palette.light,
+      shadows: shadows.light,
     }),
     []
   );
