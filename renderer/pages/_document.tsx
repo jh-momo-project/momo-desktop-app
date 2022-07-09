@@ -22,8 +22,8 @@ export default class MyDocument extends Document {
       <Html lang="en">
         <Head>
           <meta charSet="utf-8" />
-          <meta name="author" content="styleseller" />
-          <meta name="description" content="stylink" />
+          <meta name="author" content="jihyun" />
+          <meta name="description" content="momo project" />
         </Head>
 
         <body>
