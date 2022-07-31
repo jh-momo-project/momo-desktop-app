@@ -1,15 +1,29 @@
+import { css } from "styled-components";
 import { pxToRem } from "../../../utils/fontUtils";
 
 const getTypography = (size: number, height: number) => {
-  const commonStyle = {
-    fontSize: pxToRem(size),
-    lineHeight: height / size,
-    letterSpacing: "-0.2px",
-  };
+  const commonStyle = css`
+    font-size: ${pxToRem(size)};
+    line-height: ${height / size};
+    letter-spacing: -0.2px;
+  `;
   return {
-    bold: { ...commonStyle, fontWeight: 700 },
-    medium: { ...commonStyle, fontWeight: 500 },
-    regular: { ...commonStyle, fontWeight: 400 },
+    extraBold: css`
+      ${commonStyle};
+      font-weight: 800;
+    `,
+    bold: css`
+      ${commonStyle};
+      font-weight: 700;
+    `,
+    medium: css`
+      ${commonStyle};
+      font-weight: 500;
+    `,
+    regular: `
+      ${commonStyle};
+      font-weight: 400;
+    `,
   };
 };
 
