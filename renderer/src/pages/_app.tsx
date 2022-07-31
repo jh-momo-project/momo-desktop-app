@@ -4,6 +4,8 @@ import Head from "next/head";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
 import GlobalStyle from "../common/styles/GlobalStyle";
+import { ThemeProvider } from "styled-components";
+import theme from "../common/styles/theme";
 
 import "../../public/fonts/styles.css";
 
@@ -27,11 +29,13 @@ function App({ Component, pageProps }: AppProps) {
         <meta name="viewport" content="initial-scale=1, width=device-width" />
       </Head>
 
-      <QueryClientProvider client={queryClient}>
-        <ReactQueryDevtools initialIsOpen />
-        <GlobalStyle />
-        <Component {...pageProps} />
-      </QueryClientProvider>
+      <ThemeProvider theme={theme}>
+        <QueryClientProvider client={queryClient}>
+          <ReactQueryDevtools initialIsOpen />
+          <GlobalStyle />
+          <Component {...pageProps} />
+        </QueryClientProvider>
+      </ThemeProvider>
     </>
   );
 }
