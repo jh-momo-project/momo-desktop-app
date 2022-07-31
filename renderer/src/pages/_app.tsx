@@ -3,9 +3,9 @@ import type { AppProps } from "next/app";
 import Head from "next/head";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
-import ThemeProvider from "../src/theme";
+import ThemeProvider from "../theme";
 
-import "../public/fonts/styles.css";
+import "../../public/fonts/styles.css";
 
 function App({ Component, pageProps }: AppProps) {
   const [queryClient] = useState(
