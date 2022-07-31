@@ -3,6 +3,7 @@ import type { AppProps } from "next/app";
 import Head from "next/head";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
+import GlobalStyle from "../common/styles/GlobalStyle";
 
 import "../../public/fonts/styles.css";
 
@@ -28,6 +29,7 @@ function App({ Component, pageProps }: AppProps) {
 
       <QueryClientProvider client={queryClient}>
         <ReactQueryDevtools initialIsOpen />
+        <GlobalStyle />
         <Component {...pageProps} />
       </QueryClientProvider>
     </>
