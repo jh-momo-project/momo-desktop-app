@@ -1,5 +1,5 @@
 import { css } from "styled-components";
-import { pxToRem } from "../../../utils/fontUtils";
+import { pxToRem } from "@utils/fontUtils";
 
 const getTypography = (size: number, height: number) => {
   const commonStyle = css`

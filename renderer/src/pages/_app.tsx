@@ -3,9 +3,9 @@ import type { AppProps } from "next/app";
 import Head from "next/head";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
-import GlobalStyle from "../common/styles/GlobalStyle";
 import { ThemeProvider } from "styled-components";
-import theme from "../common/styles/theme";
+import GlobalStyle from "@common/styles/GlobalStyle";
+import theme from "@common/styles/theme";
 
 import "../../public/fonts/styles.css";
 

@@ -1,5 +1,5 @@
-import styled, { DefaultTheme } from "styled-components";
-import { textStyle } from "../../common/styles/theme/typography";
+import styled from "styled-components";
+import { textStyle } from "@common/styles/theme/typography";
 
 interface TextProps {
   size: keyof typeof textStyle;
