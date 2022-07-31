@@ -3,7 +3,6 @@ import type { AppProps } from "next/app";
 import Head from "next/head";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
-import ThemeProvider from "../theme";
 
 import "../../public/fonts/styles.css";
 
@@ -27,12 +26,10 @@ function App({ Component, pageProps }: AppProps) {
         <meta name="viewport" content="initial-scale=1, width=device-width" />
       </Head>
 
-      <ThemeProvider>
-        <QueryClientProvider client={queryClient}>
-          <ReactQueryDevtools initialIsOpen />
-          <Component {...pageProps} />
-        </QueryClientProvider>
-      </ThemeProvider>
+      <QueryClientProvider client={queryClient}>
+        <ReactQueryDevtools initialIsOpen />
+        <Component {...pageProps} />
+      </QueryClientProvider>
     </>
   );
 }
