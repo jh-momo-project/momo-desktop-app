@@ -1,13 +1,7 @@
 import * as React from "react";
 
 const SvgShare = (props) => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width={24}
-    height={24}
-    fill="currentColor"
-    {...props}
-  >
+  <svg xmlns="http://www.w3.org/2000/svg" width={24} height={24} fill="currentColor" {...props}>
     <path
       fillRule="evenodd"
       d="M15.325 4.25A3.751 3.751 0 0 1 22.75 5a3.75 3.75 0 0 1-7.425.75H9a3.251 3.251 0 0 0-3.183 2.59 3.751 3.751 0 0 1 0 7.32A3.251 3.251 0 0 0 9 18.25h6.325a3.751 3.751 0 0 1 7.425.75 3.75 3.75 0 0 1-7.425.75H9a4.751 4.751 0 0 1-4.701-4.065 3.751 3.751 0 0 1 0-7.37A4.751 4.751 0 0 1 9 4.25h6.325zM16.75 19a2.25 2.25 0 1 0 4.5 0 2.25 2.25 0 0 0-4.5 0zm0-14a2.25 2.25 0 1 0 4.5 0 2.25 2.25 0 0 0-4.5 0zM5 9.75a2.25 2.25 0 1 0 0 4.5 2.25 2.25 0 0 0 0-4.5z"

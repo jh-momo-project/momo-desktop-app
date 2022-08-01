@@ -1,13 +1,7 @@
 import styled from "styled-components";
 import { BoxProps, BoxStyle } from "../Box";
 
-type JustifyContentTypes =
-  | "start"
-  | "end"
-  | "center"
-  | "around"
-  | "between"
-  | "evenly";
+type JustifyContentTypes = "start" | "end" | "center" | "around" | "between" | "evenly";
 
 function getJustifyContent(jc: JustifyContentTypes) {
   switch (jc) {
@@ -51,10 +45,8 @@ export interface StackProps extends BoxProps {
 const Stack = styled.div<StackProps>`
   ${BoxStyle};
   display: flex;
-  flex-direction: ${(props) =>
-    props.direction === "column" ? "column" : "row"};
-  justify-content: ${(props) =>
-    props?.jc ? getJustifyContent(props.jc) : "center"};
+  flex-direction: ${(props) => (props.direction === "column" ? "column" : "row")};
+  justify-content: ${(props) => (props?.jc ? getJustifyContent(props.jc) : "center")};
   align-items: ${(props) => (props?.ai ? getAlignItems(props.ai) : "center")};
   gap: ${(props) => (props?.gap ? props.gap + "px" : 0)};
 `;
