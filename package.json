@@ -8,7 +8,8 @@
   "scripts": {
     "dev": "nextron",
     "build": "nextron build",
-    "postinstall": "electron-builder install-app-deps"
+    "postinstall": "electron-builder install-app-deps",
+    "icon": "npx @svgr/cli --config-file ./.svgrrc.js --out-dir ./renderer/src/components/Icons --ext tsx ./renderer/public/images/svg"
   },
   "dependencies": {
     "@types/styled-components": "^5.1.25",
