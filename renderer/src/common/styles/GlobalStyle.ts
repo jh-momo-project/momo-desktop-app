@@ -18,6 +18,9 @@ const GlobalStyle = createGlobalStyle`
   }
 
   button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border: none;
     background-color: inherit;
     cursor: pointer;
