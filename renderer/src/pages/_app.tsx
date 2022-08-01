@@ -1,15 +1,29 @@
-import { useState } from "react";
+import { ReactElement, ReactNode, useState } from "react";
+// next
+import { NextPage } from "next";
 import type { AppProps } from "next/app";
 import Head from "next/head";
+// react-query
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
+// styled-components
 import { ThemeProvider } from "styled-components";
 import GlobalStyle from "@common/styles/GlobalStyle";
 import theme from "@common/styles/theme";
 
 import "../../public/fonts/styles.css";
 
-function App({ Component, pageProps }: AppProps) {
+type NextPageWithLayout = NextPage & {
+  getLayout?: (page: ReactElement) => ReactNode;
+};
+
+interface MyAppProps extends AppProps {
+  Component: NextPageWithLayout;
+}
+
+function App({ Component, pageProps }: MyAppProps) {
+  const getLayout = Component.getLayout ?? ((page) => page);
+
   const [queryClient] = useState(
     () =>
       new QueryClient({
@@ -33,7 +47,7 @@ function App({ Component, pageProps }: AppProps) {
         <QueryClientProvider client={queryClient}>
           <ReactQueryDevtools initialIsOpen />
           <GlobalStyle />
-          <Component {...pageProps} />
+          {getLayout(<Component {...pageProps} />)}
         </QueryClientProvider>
       </ThemeProvider>
     </>
