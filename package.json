@@ -9,7 +9,8 @@
     "dev": "nextron",
     "build": "nextron build",
     "postinstall": "electron-builder install-app-deps",
-    "prettier": "prettier . --write --ignore-path .prettierignore"
+    "prettier": "prettier . --write --ignore-path .prettierignore",
+    "icon": "npx @svgr/cli --config-file ./.svgrrc.js --out-dir ./renderer/src/components/Icons --ext tsx ./renderer/public/images/svg"
   },
   "dependencies": {
     "@emotion/react": "^11.9.3",
