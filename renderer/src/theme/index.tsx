@@ -8,11 +8,7 @@
 // ----------------------------------------------------------------------
 
 import { ReactNode, useMemo } from "react";
-import {
-  createTheme,
-  ThemeOptions,
-  ThemeProvider as MUIThemeProvider,
-} from "@mui/material/styles";
+import { createTheme, ThemeOptions, ThemeProvider as MUIThemeProvider } from "@mui/material/styles";
 import { CssBaseline } from "@mui/material";
 import palette from "./palette";
 import shadows from "./shadows";

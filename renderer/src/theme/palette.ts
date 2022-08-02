@@ -2,13 +2,7 @@
  * MUI color theme 적용
  */
 
-export type ColorSchema =
-  | "primary"
-  | "secondary"
-  | "info"
-  | "success"
-  | "warning"
-  | "error";
+export type ColorSchema = "primary" | "secondary" | "info" | "success" | "warning" | "error";
 
 declare module "@mui/material/styles/createPalette" {
   interface TypeBackground {
