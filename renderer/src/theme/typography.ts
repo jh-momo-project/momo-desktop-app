@@ -13,6 +13,7 @@ const getTypography = (size: number, height: number) => {
     letterSpacing: "-0.2px",
   };
   return {
+    extraBold: { ...commonStyle, fontWeight: 800 },
     bold: { ...commonStyle, fontWeight: 700 },
     medium: { ...commonStyle, fontWeight: 500 },
     regular: { ...commonStyle, fontWeight: 400 },
