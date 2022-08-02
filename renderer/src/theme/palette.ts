@@ -4,57 +4,39 @@
 
 export type ColorSchema = "primary" | "secondary" | "info" | "success" | "warning" | "error";
 
-declare module "@mui/material/styles/createPalette" {
-  interface TypeBackground {
-    neutral: string;
-  }
-  interface SimplePaletteColorOptions {
-    lighter?: string;
-    darker?: string;
-  }
-  interface PaletteColor {
-    lighter?: string;
-    darker?: string;
-  }
-}
-
 // SETUP COLORS
 const PRIMARY = {
-  darker: "#CC7000",
-  dark: "#F58700",
-  main: "#FF9F29",
-  light: "#FFB65C",
-  lighter: "#FFC885",
+  dark: "#ae414e",
+  main: "#e4717a",
+  light: "#ffa2a9",
 };
 const SECONDARY = {
-  darker: "#0A1F12",
-  dark: "#143D25",
-  main: "#1A4D2E",
-  light: "#246B40",
-  lighter: "#33995C",
+  dark: "#004851",
+  main: "#36747d",
+  light: "#66a3ac",
 };
 
 const INFO = {
-  light: "#74CAFF",
+  light: "#6ec0ff",
   main: "#1890FF",
-  dark: "#0C53B7",
+  dark: "#0063cb",
 };
 
 const SUCCESS = {
-  light: "#AAF27F",
+  light: "#8dff62",
   main: "#54D62C",
-  dark: "#229A16",
+  dark: "#00a300",
 };
 
 const WARNING = {
-  light: "#FFE16A",
+  light: "#fff350",
   main: "#FFC107",
-  dark: "#B78103",
+  dark: "#c79100",
 };
 const ERROR = {
-  light: "#FFA48D",
+  light: "#ff7e6e",
   main: "#FF4842",
-  dark: "#B72136",
+  dark: "#c40019",
 };
 
 const GREY = {
@@ -74,25 +56,23 @@ const GREY = {
 
 const COMMON = {
   common: { black: "#000", white: "#fff" },
-  primary: { ...PRIMARY, contrastText: "#fff" },
+  primary: { ...PRIMARY, contrastText: "#000" },
   secondary: { ...SECONDARY, contrastText: "#fff" },
-  info: { ...INFO, contrastText: "#fff" },
-  success: { ...SUCCESS, contrastText: "#fff" },
-  warning: { ...WARNING, contrastText: "#fff" },
-  error: { ...ERROR, contrastText: "#fff" },
+  info: { ...INFO, contrastText: "#000" },
+  success: { ...SUCCESS, contrastText: "#000" },
+  warning: { ...WARNING, contrastText: "#000" },
+  error: { ...ERROR, contrastText: "#000" },
   grey: GREY,
 };
 
 const palette = {
-  light: {
-    ...COMMON,
-    mode: "light",
-    text: {
-      primary: GREY["black"],
-      secondary: GREY[1000],
-      disabled: GREY[500],
-      background: { paper: "#fff", default: "#fff", neutral: GREY[200] },
-    },
+  ...COMMON,
+  mode: "light",
+  text: {
+    primary: GREY["black"],
+    secondary: GREY[1000],
+    disabled: GREY[500],
+    background: { paper: "#fff", default: "#fff", neutral: GREY[200] },
   },
 } as const;
 

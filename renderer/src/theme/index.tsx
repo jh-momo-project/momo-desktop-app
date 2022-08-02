@@ -21,8 +21,8 @@ type Props = {
 const ThemeProvider = ({ children }: Props) => {
   const themeOption: ThemeOptions = useMemo(
     () => ({
-      palette: palette.light,
-      shadows: shadows.light,
+      palette: palette,
+      shadows: shadows,
       typography,
     }),
     []
