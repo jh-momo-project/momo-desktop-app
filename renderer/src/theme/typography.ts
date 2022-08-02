@@ -2,7 +2,7 @@
  * MUI typography theme 적용
  */
 
-import { pxToRem } from "../utils/fontUtils";
+import { pxToRem } from "@utils/fontUtils";
 
 const MAIN_FONT = "SUIT";
 

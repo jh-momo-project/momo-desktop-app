@@ -1,10 +1,13 @@
 import { ReactElement, ReactNode, useState } from "react";
+// next
 import type { AppProps } from "next/app";
 import { NextPage } from "next";
 import Head from "next/head";
+// react-query
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
-import ThemeProvider from "../theme";
+// theme
+import ThemeProvider from "@theme/index";
 
 import "../../public/fonts/styles.css";
 
