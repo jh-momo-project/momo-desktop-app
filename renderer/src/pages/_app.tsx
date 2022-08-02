@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { ReactElement, ReactNode, useState } from "react";
 import type { AppProps } from "next/app";
+import { NextPage } from "next";
 import Head from "next/head";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
@@ -7,7 +8,17 @@ import ThemeProvider from "../theme";
 
 import "../../public/fonts/styles.css";
 
-function App({ Component, pageProps }: AppProps) {
+type NextPageWithLayout = NextPage & {
+  getLayout?: (page: ReactElement) => ReactNode;
+};
+
+interface MyAppProps extends AppProps {
+  Component: NextPageWithLayout;
+}
+
+function App({ Component, pageProps }: MyAppProps) {
+  const getLayout = Component.getLayout ?? ((page) => page);
+
   const [queryClient] = useState(
     () =>
       new QueryClient({
@@ -30,7 +41,7 @@ function App({ Component, pageProps }: AppProps) {
       <ThemeProvider>
         <QueryClientProvider client={queryClient}>
           <ReactQueryDevtools initialIsOpen />
-          <Component {...pageProps} />
+          {getLayout(<Component {...pageProps} />)}
         </QueryClientProvider>
       </ThemeProvider>
     </>
