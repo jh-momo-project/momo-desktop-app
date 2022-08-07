@@ -1,10 +1,9 @@
+import Link from "@modules/links/models/Link";
+
 interface ILinkCard {
-  link: {
-    id: number;
-    name: string;
-  };
+  link: Link;
 }
 
 export default function LinkCard({ link }: ILinkCard) {
-  return <div>{link.name}</div>;
+  return <div>{link.title}</div>;
 }

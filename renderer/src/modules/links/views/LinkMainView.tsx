@@ -12,8 +12,7 @@ import useGetCategories from "../services/hooks/useGetCategories";
 export default function LinkMainView() {
   const { data: categories } = useGetCategories();
   const [currentId, setCurrentDirectory] = useState(categories[0].id);
-  const { isLoading, data } = useGetLinks({ categoryId: currentId });
-
+  const { isLoading, data: links } = useGetLinks({ categoryId: currentId });
   return (
     <>
       <LinkMainHeader />
@@ -28,11 +27,7 @@ export default function LinkMainView() {
             />
           ))}
         </DirectoryList>
-        <LinkList>
-          {/* {links[currentDirectory].map((link) => (
-            <LinkCard key={link.id} link={link} />
-          ))} */}
-        </LinkList>
+        <LinkList>{!isLoading && links.map((link) => <LinkCard key={link.id} link={link} />)}</LinkList>
       </Stack>
     </>
   );

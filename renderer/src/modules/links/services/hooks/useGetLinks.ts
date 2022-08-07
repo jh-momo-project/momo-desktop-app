@@ -1,6 +1,7 @@
 import { useQuery } from "react-query";
-import LINK_QUERY_KEY from "../constants/queryKey";
+import Link from "@modules/links/models/Link";
 import LinkApi from "../LinkApi";
+import LINK_QUERY_KEY from "../constants/queryKey";
 
 interface IUseGetLinks {
   categoryId?: number;
@@ -9,7 +10,7 @@ interface IUseGetLinks {
 const useGetLinks = ({ categoryId }: IUseGetLinks) => {
   const params = !!categoryId ? { categoryId } : {};
   return useQuery(LINK_QUERY_KEY.GET_LINKS(params), () => LinkApi.getLinksByCategory(params), {
-    select: (res) => res.data,
+    select: (res) => res.data.map((link) => Link.create(link)),
   });
 };
 
