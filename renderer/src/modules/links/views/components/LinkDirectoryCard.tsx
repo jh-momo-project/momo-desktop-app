@@ -9,7 +9,7 @@ import palette from "@theme/palette";
 interface ILinkDirectoryCard {
   item: {
     id: number;
-    name: string;
+    title: string;
   };
   onClick: (e: React.MouseEvent<HTMLLIElement>) => void;
 }
@@ -28,7 +28,7 @@ export default function LinkDirectoryCard({ item, onClick }: ILinkDirectoryCard)
       }}
     >
       <Text size={14} weight="bold" color="grey.800">
-        {item.name}
+        {item.title}
       </Text>
     </ListItem>
   );
