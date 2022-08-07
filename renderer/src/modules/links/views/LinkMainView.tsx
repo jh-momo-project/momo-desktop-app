@@ -20,7 +20,12 @@ export default function LinkMainView() {
       <Stack component="section" direction="row">
         <DirectoryList>
           {categories.map((item) => (
-            <LinkDirectoryCard key={item.id} item={item} onClick={(e) => setCurrentDirectory(item.id)} />
+            <LinkDirectoryCard
+              key={item.id}
+              item={item}
+              isActive={currentId === item.id}
+              onClick={(e) => setCurrentDirectory(item.id)}
+            />
           ))}
         </DirectoryList>
         <LinkList>

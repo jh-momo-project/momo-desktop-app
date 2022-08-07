@@ -5,16 +5,15 @@ import { ListItem } from "@mui/material";
 import Text from "@components/Text";
 // theme
 import palette from "@theme/palette";
+import LinkCategory from "@modules/links/models/LinkCategory";
 
 interface ILinkDirectoryCard {
-  item: {
-    id: number;
-    title: string;
-  };
+  isActive?: boolean;
+  item: LinkCategory;
   onClick: (e: React.MouseEvent<HTMLLIElement>) => void;
 }
 
-export default function LinkDirectoryCard({ item, onClick }: ILinkDirectoryCard) {
+export default function LinkDirectoryCard({ isActive, item, onClick }: ILinkDirectoryCard) {
   return (
     <ListItem
       key={item.id}
@@ -24,7 +23,8 @@ export default function LinkDirectoryCard({ item, onClick }: ILinkDirectoryCard)
         borderRadius: "8px",
         cursor: "pointer",
         transition: "background-color 150ms ease-in-out",
-        "&:hover": { bgcolor: `${palette.primary.light}30` },
+        bgcolor: isActive ? `${palette.primary.light}40` : "common.white",
+        "&:hover": { bgcolor: isActive ? `${palette.primary.light}40` : `${palette.primary.light}15` },
       }}
     >
       <Text size={14} weight="bold" color="grey.800">
