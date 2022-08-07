@@ -4,7 +4,7 @@ import type { AppProps } from "next/app";
 import { NextPage } from "next";
 import Head from "next/head";
 // react-query
-import { QueryClient, QueryClientProvider } from "react-query";
+import { Hydrate, QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
 // theme
 import ThemeProvider from "@theme/index";
@@ -43,8 +43,10 @@ function App({ Component, pageProps }: MyAppProps) {
 
       <ThemeProvider>
         <QueryClientProvider client={queryClient}>
-          <ReactQueryDevtools initialIsOpen />
-          {getLayout(<Component {...pageProps} />)}
+          <Hydrate state={pageProps.dehydratedState}>
+            <ReactQueryDevtools initialIsOpen />
+            {getLayout(<Component {...pageProps} />)}
+          </Hydrate>
         </QueryClientProvider>
       </ThemeProvider>
     </>
