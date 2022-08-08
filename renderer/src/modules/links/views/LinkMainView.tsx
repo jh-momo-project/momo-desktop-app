@@ -1,13 +1,15 @@
 import { useState } from "react";
 // @mui
-import { Stack } from "@mui/material";
-// modules
-import { DirectoryList, LinkList } from "@modules/links/views/styles";
+import { Box, Grid } from "@mui/material";
+// service
+import useGetLinks from "../services/hooks/useGetLinks";
+import useGetCategories from "../services/hooks/useGetCategories";
+// view
+import { DirectoryList, LinkList, ViewContainer } from "@modules/links/views/styles";
+// components
 import LinkDirectoryCard from "@modules/links/views/components/LinkDirectoryCard";
 import LinkMainHeader from "@modules/links/views/components/LinkMainHeader";
 import LinkCard from "@modules/links/views/components/LinkCard";
-import useGetLinks from "../services/hooks/useGetLinks";
-import useGetCategories from "../services/hooks/useGetCategories";
 
 export default function LinkMainView() {
   const { data: categories } = useGetCategories();
@@ -16,7 +18,7 @@ export default function LinkMainView() {
   return (
     <>
       <LinkMainHeader />
-      <Stack component="section" direction="row">
+      <ViewContainer direction="row" sx={{ overflowY: "hidden", msOverflowY: "hidden" }}>
         <DirectoryList>
           {categories.map((item) => (
             <LinkDirectoryCard
@@ -27,8 +29,17 @@ export default function LinkMainView() {
             />
           ))}
         </DirectoryList>
-        <LinkList>{!isLoading && links.map((link) => <LinkCard key={link.id} link={link} />)}</LinkList>
-      </Stack>
+        <Box sx={{ width: "100%" }}>
+          <LinkList container spacing={2}>
+            {!isLoading &&
+              links.map((link) => (
+                <Grid item key={link.id} xs={12} sm={6} md={4} lg={3} xl={2} sx={{ flexGrow: 0 }}>
+                  <LinkCard link={link} />
+                </Grid>
+              ))}
+          </LinkList>
+        </Box>
+      </ViewContainer>
     </>
   );
 }
