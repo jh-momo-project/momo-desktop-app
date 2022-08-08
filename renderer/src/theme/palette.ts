@@ -6,10 +6,15 @@ export type ColorSchema = "primary" | "secondary" | "info" | "success" | "warnin
 
 // SETUP COLORS
 const PRIMARY = {
-  dark: "#ae414e",
-  main: "#e4717a",
-  light: "#ffa2a9",
+  dark: "#1b1b1b",
+  main: "#424242",
+  light: "#6d6d6d",
 };
+// const PRIMARY = {
+//   dark: "#ae414e",
+//   main: "#e4717a",
+//   light: "#ffa2a9",
+// };
 const SECONDARY = {
   dark: "#004851",
   main: "#36747d",
