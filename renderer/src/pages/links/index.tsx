@@ -10,13 +10,13 @@ export default function LinkMainPage() {
 
 LinkMainPage.getLayout = (page) => <Layout>{page}</Layout>;
 
-export async function getServerSideProps(context) {
+export async function getStaticProps(context) {
   const queryClient = new QueryClient();
   await queryClient.prefetchQuery(LINK_QUERY_KEY.GET_CATEGORIES(), () => LinkApi.getCategories());
-
   return {
     props: {
       dehydratedState: dehydrate(queryClient),
     },
+    revalidate: 30,
   };
 }
