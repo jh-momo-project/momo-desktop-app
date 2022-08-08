@@ -11,8 +11,9 @@ import { ReactNode, useMemo } from "react";
 import { createTheme, ThemeOptions, ThemeProvider as MUIThemeProvider } from "@mui/material/styles";
 import { CssBaseline } from "@mui/material";
 import palette from "./palette";
-import shadows from "./shadows";
+import shadows, { customShadows } from "./shadows";
 import typography from "./typography";
+import ComponentsOverrides from "./override";
 
 type Props = {
   children: ReactNode;
@@ -22,6 +23,7 @@ const ThemeProvider = ({ children }: Props) => {
   const themeOption: ThemeOptions = useMemo(
     () => ({
       palette: palette,
+      customShadows: customShadows,
       shadows: shadows,
       typography,
     }),
@@ -29,8 +31,7 @@ const ThemeProvider = ({ children }: Props) => {
   );
   const theme = createTheme(themeOption);
 
-  // ! 컴포넌트 디자인 오버라이드 가능
-  // theme.components = componentsOverride(theme);
+  theme.components = ComponentsOverrides(theme);
 
   return (
     <MUIThemeProvider theme={theme}>
