@@ -1,6 +1,8 @@
+import { Url } from "renderer/src/types/browser";
+
 class Link {
   id: number;
-  url: string;
+  url: Url;
   title: string;
   description: string;
   thumbnail: string;
