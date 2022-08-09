@@ -13,6 +13,8 @@
     "icon": "npx @svgr/cli --config-file ./.svgrrc.js --out-dir ./renderer/src/components/Icons --ext tsx ./renderer/public/images/svg"
   },
   "dependencies": {
+    "@dnd-kit/core": "^6.0.5",
+    "@dnd-kit/sortable": "^7.0.1",
     "@emotion/react": "^11.9.3",
     "@emotion/server": "^11.4.0",
     "@emotion/styled": "^11.9.3",
