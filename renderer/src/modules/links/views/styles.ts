@@ -1,5 +1,6 @@
 // @mui
-import { Grid, List, Stack, styled } from "@mui/material";
+import { List, Stack, styled } from "@mui/material";
+import Grid2 from "@mui/material/Unstable_Grid2";
 // constants
 import LINKS_SIZE from "@modules/links/constants/size";
 
@@ -19,9 +20,10 @@ export const DirectoryList = styled(List)(({ theme }) => ({
   padding: "10px",
 }));
 
-export const LinkList = styled(Grid)({
+export const LinkList = styled(Grid2)({
   width: "100%",
+  height: "auto",
   margin: "0 auto 0 auto",
   padding: 20,
-  overflow: "auto",
+  overflow: "hidden",
 });

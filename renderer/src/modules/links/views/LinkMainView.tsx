@@ -1,3 +1,7 @@
+/**
+ * @view LinkMainView
+ */
+
 import { useState } from "react";
 // @mui
 import { Box } from "@mui/material";
@@ -7,16 +11,18 @@ import useGetCategories from "../services/hooks/useGetCategories";
 // view
 import { DirectoryList, ViewContainer } from "@modules/links/views/styles";
 // section
-import LinkListSection from "./sections/LinkListSection";
+import LinkListSection from "./sections/DndLinkListSection";
 // components
 import LinkDirectoryCard from "@modules/links/views/components/LinkDirectoryCard";
 import LinkMainHeader from "@modules/links/views/components/LinkMainHeader";
+// constants
+import LINKS_SIZE from "../constants/size";
 
 export default function LinkMainView() {
   const { data: categories } = useGetCategories();
-  const [currentId, setCurrentDirectory] = useState(categories[0].id);
+  const [currentCategoryId, setCurrentCategoryId] = useState(categories[0].id);
 
-  const { isLoading, data: links } = useGetLinks({ categoryId: currentId });
+  const { isLoading, data: links } = useGetLinks({ categoryId: currentCategoryId });
 
   return (
     <>
@@ -27,12 +33,14 @@ export default function LinkMainView() {
             <LinkDirectoryCard
               key={item.id}
               item={item}
-              isActive={currentId === item.id}
-              onClick={(e) => setCurrentDirectory(item.id)}
+              isActive={currentCategoryId === item.id}
+              onClick={(e) => setCurrentCategoryId(item.id)}
             />
           ))}
         </DirectoryList>
-        <Box sx={{ width: "100%", height: "100%" }}>{!isLoading && <LinkListSection links={links} />}</Box>
+        <Box sx={{ width: "100%", height: `calc(100vh - ${LINKS_SIZE.HEADER_HEIGHT})px`, overflow: "auto" }}>
+          {!isLoading && <LinkListSection links={links} />}
+        </Box>
       </ViewContainer>
     </>
   );
