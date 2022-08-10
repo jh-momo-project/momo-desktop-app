@@ -9,14 +9,14 @@ import { Box } from "@mui/material";
 import useGetLinks from "../services/hooks/useGetLinks";
 import useGetCategories from "../services/hooks/useGetCategories";
 // view
-import { DirectoryList, ViewContainer } from "@modules/links/views/styles";
+import { DirectoryContainer, ViewContainer } from "@modules/links/views/styles";
 // section
-import LinkListSection from "./sections/DndLinkListSection";
+import LinkListSection from "@modules/links/views/sections/DndLinkListSection";
+import DndDirectoryListSection from "@modules/links/views/sections/DndDirectoryListSection";
 // components
-import LinkDirectoryCard from "@modules/links/views/components/LinkDirectoryCard";
 import LinkMainHeader from "@modules/links/views/components/LinkMainHeader";
 // constants
-import LINKS_SIZE from "../constants/size";
+import LINKS_SIZE from "@modules/links/constants/size";
 
 export default function LinkMainView() {
   const { data: categories } = useGetCategories();
@@ -28,17 +28,17 @@ export default function LinkMainView() {
     <>
       <LinkMainHeader />
       <ViewContainer direction="row" sx={{ overflowY: "hidden", msOverflowY: "hidden" }}>
-        <DirectoryList>
-          {categories.map((item) => (
-            <LinkDirectoryCard
-              key={item.id}
-              item={item}
-              isActive={currentCategoryId === item.id}
-              onClick={(e) => setCurrentCategoryId(item.id)}
-            />
-          ))}
-        </DirectoryList>
-        <Box sx={{ width: "100%", height: `calc(100vh - ${LINKS_SIZE.HEADER_HEIGHT})px`, overflow: "auto" }}>
+        <DirectoryContainer>
+          <DndDirectoryListSection
+            directories={categories}
+            currentId={currentCategoryId}
+            setCurrentId={setCurrentCategoryId}
+          />
+        </DirectoryContainer>
+        <Box
+          component="section"
+          sx={{ width: "100%", height: `calc(100vh - ${LINKS_SIZE.HEADER_HEIGHT})px`, overflow: "auto" }}
+        >
           {!isLoading && <LinkListSection links={links} />}
         </Box>
       </ViewContainer>

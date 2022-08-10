@@ -1,5 +1,5 @@
 /**
- * @view DndLinkListSection
+ * @section DndLinkListSection
  * Drag&Drop이 적용된 링크리스트 섹션
  */
 
