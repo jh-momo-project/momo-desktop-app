@@ -23,6 +23,7 @@
     "axios": "^0.27.2",
     "electron-serve": "^1.1.0",
     "electron-store": "^8.0.1",
+    "react-hook-form": "^7.34.0",
     "react-query": "^3.39.1",
     "zustand": "^4.0.0"
   },
