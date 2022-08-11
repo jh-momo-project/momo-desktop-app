@@ -30,9 +30,14 @@ export default function DndDirectoryCard({ isActive, item, onClick }: Props) {
     backgroundColor: "white",
   };
   return (
-    <div ref={setNodeRef} style={style} {...listeners} {...attributes}>
+    <div
+      ref={setNodeRef}
+      style={style}
+      {...listeners}
+      {...attributes}
+      aria-describedby="드래그앤드롭이 가능한 디렉토리 카드"
+    >
       <ListItem
-        key={item.id}
         onClick={onClick}
         sx={{
           height: 48,

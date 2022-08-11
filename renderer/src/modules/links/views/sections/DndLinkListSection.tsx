@@ -38,7 +38,7 @@ export default function DndLinkListSection({ links }: Props) {
         {links && (
           <SortableContext items={links} strategy={rectSortingStrategy}>
             {links.map((link) => (
-              <LinkCard link={link} />
+              <LinkCard key={link.id} link={link} />
             ))}
           </SortableContext>
         )}
