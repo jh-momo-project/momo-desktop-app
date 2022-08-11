@@ -6,7 +6,7 @@ import { useState } from "react";
 // @mui
 import { Box } from "@mui/material";
 // service
-import useGetLinks from "../services/hooks/useGetLinks";
+import useGetLinksByCategory from "../services/hooks/useGetLinksByCategory";
 import useGetCategories from "../services/hooks/useGetCategories";
 // view
 import { DirectoryContainer, ViewContainer } from "@modules/links/views/styles";
@@ -22,7 +22,7 @@ export default function LinkMainView() {
   const { data: categories } = useGetCategories();
   const [currentCategoryId, setCurrentCategoryId] = useState(categories[0].id);
 
-  const { isLoading, data: links } = useGetLinks({ categoryId: currentCategoryId });
+  const { isLoading, data: links } = useGetLinksByCategory({ categoryId: currentCategoryId });
 
   return (
     <>

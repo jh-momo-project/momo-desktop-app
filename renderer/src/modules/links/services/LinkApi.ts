@@ -5,8 +5,8 @@ class LinkApi extends BaseApi {
     return this.get("/categories");
   }
 
-  getLinksByCategory(params) {
-    return this.get("/", { params });
+  getLinksByCategory(categoryId: number) {
+    return this.get(`category/${categoryId}`);
   }
 }
 
